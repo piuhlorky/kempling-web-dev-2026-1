@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <!-- viewport задаёт ширину области просмотра по ширине устройства. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Собрать ланч</title>
+    <!-- Первый link подключает шрифт, второй — общие стили из первой лабораторной. -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;700&amp;display=swap">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+    <header>
+        <h1>Ланч в офис — обеды с доставкой</h1>
+        <nav>
+            <a href="index.html">Главная</a>
+            <!-- aria-current="page" отмечает текущую страницу в меню. -->
+            <a href="menu.html" class="active" aria-current="page">Собрать ланч</a>
+            <a href="#contacts">Контакты</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- section объединяет блюда одной категории. Здесь это супы. -->
+        <section>
+            <h2>Выберите суп</h2>
+            <!-- dish-grid (сетка блюд) — общий контейнер для карточек категории. -->
+            <div class="dish-grid">
+                <!-- dish-card (карточка блюда) объединяет картинку, цену, название, вес и кнопку. -->
+                <div class="dish-card">
+                    <img src="soups/mushroom-cream-soup.jpg" alt="Грибной суп-пюре">
+                    <p class="dish-price">190 ₽</p>
+                    <p class="dish-name">Грибной суп-пюре</p>
+                    <p class="dish-weight">330 г</p>
+                    <!-- type="button" обозначает обычную кнопку. Действие добавим позже. -->
+                    <button type="button">Добавить</button>
+                </div>
+                <div class="dish-card">
+                    <img src="soups/tomato-soup.jpg" alt="Томатный суп">
+                    <p class="dish-price">180 ₽</p>
+                    <p class="dish-name">Томатный суп</p>
+                    <p class="dish-weight">300 г</p>
+                    <!-- type="button" обозначает обычную кнопку. Действие добавим позже. -->
+                    <button type="button">Добавить</button>
+                </div>
+                <div class="dish-card">
+                    <img src="soups/chicken-noodle-soup.jpg" alt="Куриный суп с лапшой">
+                    <p class="dish-price">210 ₽</p>
+                    <p class="dish-name">Куриный суп с лапшой</p>
+                    <p class="dish-weight">350 г</p>
+                    <button type="button">Добавить</button>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>Выберите главное блюдо</h2>
+            <!-- У каждой категории своя сетка. Классы общие, поэтому стили сработают и здесь. -->
+            <div class="dish-grid">
+                <div class="dish-card">
+                    <img src="main_course/chicken-with-rice.jpg" alt="Курица с рисом">
+                    <p class="dish-price">320 ₽</p>
+                    <p class="dish-name">Курица с рисом</p>
+                    <p class="dish-weight">300 г</p>
+                    <button type="button">Добавить</button>
+                </div>
+
+                <div class="dish-card">
+                    <img src="main_course/buckwheat-with-mushrooms.jpg" alt="Гречка с грибами">
+                    <p class="dish-price">250 ₽</p>
+                    <p class="dish-name">Гречка с грибами</p>
+                    <p class="dish-weight">280 г</p>
+                    <button type="button">Добавить</button>
+                </div>
+
+                <div class="dish-card">
+                    <img src="main_course/pasta-with-vegetables.jpg" alt="Паста с овощами">
+                    <p class="dish-price">290 ₽</p>
+                    <p class="dish-name">Паста с овощами</p>
+                    <p class="dish-weight">310 г</p>
+                    <button type="button">Добавить</button>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>Выберите напиток</h2>
+            <!-- Своя сетка для напитков. CSS оформит её по тем же правилам, что и сетку супов. -->
+            <div class="dish-grid">
+                <div class="dish-card">
+                    <img src="beverages/berry-mors.jpg" alt="Ягодный морс">
+                    <p class="dish-price">110 ₽</p>
+                    <p class="dish-name">Ягодный морс</p>
+                    <p class="dish-weight">250 мл</p>
+                    <button type="button">Добавить</button>
+                </div>
+
+                <div class="dish-card">
+                    <img src="beverages/black-tea.jpg" alt="Чёрный чай">
+                    <p class="dish-price">90 ₽</p>
+                    <p class="dish-name">Чёрный чай</p>
+                    <p class="dish-weight">300 мл</p>
+                    <button type="button">Добавить</button>
+                </div>
+
+                <div class="dish-card">
+                    <img src="beverages/homemade-lemonade.jpg" alt="Домашний лимонад">
+                    <p class="dish-price">130 ₽</p>
+                    <p class="dish-name">Домашний лимонад</p>
+                    <p class="dish-weight">300 мл</p>
+                    <button type="button">Добавить</button>
+                </div>
+            </div>
+    </section>
+    </main>
+    <!-- id="contacts" задаёт место, к которому ведёт ссылка из меню. -->
+    <footer id="contacts">
+        <h2>Контакты</h2>
+        <p><a href="mailto:hello@example.com">hello@example.com</a></p>
+    </footer>
+</body>
+</html>

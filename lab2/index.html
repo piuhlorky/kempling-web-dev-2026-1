@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<!-- В head находятся настройки страницы, название вкладки и ссылки на стили. -->
+<head>
+    <meta charset="UTF-8">
+    <!-- viewport — видимая область страницы. На телефоне она берёт ширину устройства, начальный масштаб — 100%. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ланч в офис</title>
+
+    <!-- Первый link подключает шрифт Golos Text, второй — стили сайта из файла style.css. -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;700&display=swap">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- header — шапка страницы с главным заголовком и меню. -->
+    <header>
+        <h1>Ланч в офис — обеды с доставкой</h1>
+        <!-- nav (navigation) объединяет ссылки меню. Атрибут href задаёт адрес ссылки. -->
+        <nav>
+            <!-- menu.html — соседний файл, а #contacts — переход к блоку с id="contacts" на этой странице. -->
+            <a href="menu.html">Собрать ланч</a>
+            <a href="#contacts">Контакты</a>
+            <a href="index.html" class="active" aria-current="page">Главная</a>
+        </nav>
+    </header>
+
+    <!-- main — основное содержимое. Каждый section — отдельный раздел с заголовком h2. -->
+    <main>
+        <section>
+            <h2>О компании</h2>
+            <!-- src (source) указывает файл картинки, alt (alternative text) описывает её. -->
+            <img class="about-image" src="lunch.svg" alt="Тарелка с рисом, курицей и овощами">
+            <p>Готовим и доставляем бизнес-ланчи в офисы по Москве.</p>
+        </section>
+
+        <section>
+            <h2>Наши преимущества</h2>
+            <!-- ul (unordered list) — список с маркерами. Каждый li (list item) — один пункт. -->
+            <ul>
+                <li>Готовим блюда в день доставки.</li>
+                <li>Привозим обед к выбранному времени.</li>
+                <li>Предлагаем вегетарианские блюда.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Популярные блюда</h2>
+            <table>
+                <!-- tr (table row) — строка таблицы. В первой строке th (table header) задаёт заголовки столбцов. -->
+                <tr>
+                    <th>Блюдо</th>
+                    <th>Порция</th>
+                    <th>Цена</th>
+                </tr>
+                <!-- В строках с блюдами td (table data) — ячейка с названием, порцией или ценой. -->
+                <tr>
+                    <td>Грибной суп-пюре</td>
+                    <td>330 г</td>
+                    <td>190 ₽</td>
+                </tr>
+                <tr>
+                    <td>Курица с рисом</td>
+                    <td>300 г</td>
+                    <td>320 ₽</td>
+                </tr>
+                <tr>
+                    <td>Гречка с грибами</td>
+                    <td>280 г</td>
+                    <td>250 ₽</td>
+                </tr>
+                <tr>
+                    <td>Овощной салат</td>
+                    <td>180 г</td>
+                    <td>170 ₽</td>
+                </tr>
+                <tr>
+                    <td>Ягодный морс</td>
+                    <td>250 мл</td>
+                    <td>110 ₽</td>
+                </tr>
+            </table>
+        </section>
+    </main>
+
+    <!-- footer — нижний блок страницы. Его id служит целью для ссылки #contacts. -->
+    <footer id="contacts">
+        <h2>Контакты</h2>
+        <!-- mailto предлагает открыть почтовое приложение с указанным адресом получателя. -->
+        <p><a href="mailto:hello@example.com">hello@example.com</a></p> <!-- a - создает ссылку, а хреф - куда она ведет. -->
+    </footer>
+</body>
+</html>
