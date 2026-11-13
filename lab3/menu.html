@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <!-- viewport задаёт ширину области просмотра по ширине устройства. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Собрать ланч</title>
+    <!-- Первый link подключает шрифт, второй — общие стили из первой лабораторной. -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;700&amp;display=swap">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+    <header>
+        <h1>Ланч в офис — обеды с доставкой</h1>
+        <nav>
+            <a href="index.html">Главная</a>
+            <!-- aria-current="page" отмечает текущую страницу в меню. -->
+            <a href="menu.html" class="active" aria-current="page">Собрать ланч</a>
+            <a href="#contacts">Контакты</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- section объединяет блюда одной категории. Здесь это супы. -->
+        <section>
+            <h2>Выберите суп</h2>
+            <!-- dish-grid (сетка блюд) — общий контейнер для карточек категории. -->
+            <div class="dish-grid">
+                <!-- dish-card (карточка блюда) объединяет картинку, цену, название, вес и кнопку. -->
+                <div class="dish-card">
+                    <img src="soups/mushroom-cream-soup.jpg" alt="Грибной суп-пюре">
+                    <p class="dish-price">190 ₽</p>
+                    <p class="dish-name">Грибной суп-пюре</p>
+                    <p class="dish-weight">330 г</p>
+                    <!-- type="button" обозначает обычную кнопку. Действие добавим позже. -->
+                    <button type="button">Добавить</button>
+                </div>
+                <div class="dish-card">
+                    <img src="soups/tomato-soup.jpg" alt="Томатный суп">
+                    <p class="dish-price">180 ₽</p>
+                    <p class="dish-name">Томатный суп</p>
+                    <p class="dish-weight">300 г</p>
+                    <!-- type="button" обозначает обычную кнопку. Действие добавим позже. -->
+                    <button type="button">Добавить</button>
+                </div>
+                <div class="dish-card">
+                    <img src="soups/chicken-noodle-soup.jpg" alt="Куриный суп с лапшой">
+                    <p class="dish-price">210 ₽</p>
+                    <p class="dish-name">Куриный суп с лапшой</p>
+                    <p class="dish-weight">350 г</p>
+                    <button type="button">Добавить</button>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>Выберите главное блюдо</h2>
+            <!-- У каждой категории своя сетка. Классы общие, поэтому стили сработают и здесь. -->
+            <div class="dish-grid">
+                <div class="dish-card">
+                    <img src="main_course/chicken-with-rice.jpg" alt="Курица с рисом">
+                    <p class="dish-price">320 ₽</p>
+                    <p class="dish-name">Курица с рисом</p>
+                    <p class="dish-weight">300 г</p>
+                    <button type="button">Добавить</button>
+                </div>
+
+                <div class="dish-card">
+                    <img src="main_course/buckwheat-with-mushrooms.jpg" alt="Гречка с грибами">
+                    <p class="dish-price">250 ₽</p>
+                    <p class="dish-name">Гречка с грибами</p>
+                    <p class="dish-weight">280 г</p>
+                    <button type="button">Добавить</button>
+                </div>
+
+                <div class="dish-card">
+                    <img src="main_course/pasta-with-vegetables.jpg" alt="Паста с овощами">
+                    <p class="dish-price">290 ₽</p>
+                    <p class="dish-name">Паста с овощами</p>
+                    <p class="dish-weight">310 г</p>
+                    <button type="button">Добавить</button>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>Выберите напиток</h2>
+            <!-- Своя сетка для напитков. CSS оформит её по тем же правилам, что и сетку супов. -->
+            <div class="dish-grid">
+                <div class="dish-card">
+                    <img src="beverages/berry-mors.jpg" alt="Ягодный морс">
+                    <p class="dish-price">110 ₽</p>
+                    <p class="dish-name">Ягодный морс</p>
+                    <p class="dish-weight">250 мл</p>
+                    <button type="button">Добавить</button>
+                </div>
+
+                <div class="dish-card">
+                    <img src="beverages/black-tea.jpg" alt="Чёрный чай">
+                    <p class="dish-price">90 ₽</p>
+                    <p class="dish-name">Чёрный чай</p>
+                    <p class="dish-weight">300 мл</p>
+                    <button type="button">Добавить</button>
+                </div>
+
+                <div class="dish-card">
+                    <img src="beverages/homemade-lemonade.jpg" alt="Домашний лимонад">
+                    <p class="dish-price">130 ₽</p>
+                    <p class="dish-name">Домашний лимонад</p>
+                    <p class="dish-weight">300 мл</p>
+                    <button type="button">Добавить</button>
+                </div>
+            </div>
+    </section>
+    </main>
+
+    <!-- РЕАЛИЗАЦИЯ ФОРМЫ. section  - раздел оформления заказа-->
+    <section class="order-section">
+        <h2>Оформить заказ</h2>
+
+        <!-- action задаёт адрес отправки, method — способ отправки. -->
+        <form action="https://httpbin.org/post" method="post">
+            <!-- div - контейнер для деталей заказа -->
+            <div class="order-details">
+                <h3>Ваш заказ</h3>
+
+                <label for="soup">Суп</label> 
+                <!-- select - выпадающий список, option - варианты в нем -->
+                <select id="soup" name="soup" required>
+                    <option value="">Выберите суп</option>
+                    <option value="mushroom-soup">Грибной суп-пюре</option>
+                    <option value="tomato-soup">Томатный суп</option>
+                    <option value="chicken-noodle-soup">Куриный суп с лапшой</option>
+                </select>
+                <label for="main-dish">Главное блюдо</label>
+                <select id="main-dish" name="main_dish" required>
+                    <option value="">Выберите главное блюдо</option>
+                    <option value="chicken-with-rice">Курица с рисом</option>
+                    <option value="buckwheat-with-mushrooms">Гречка с грибами</option>
+                    <option value="pasta-with-vegetables">Паста с овощами</option>
+                </select>
+                <label for="drink">Напиток</label>
+                <select id="drink" name="drink" required>
+                    <option value="">Выберите напиток</option>
+                    <option value="berry-mors">Ягодный морс</option>
+                    <option value="black-tea">Чёрный чай</option>
+                    <option value="homemade-lemonade">Домашний лимонад</option>
+                </select>
+                <label for="order-comment">Комментарий к заказу</label>
+                <!-- textarea - многострочное текстовое поле, rows - количество строк -->
+                <textarea id="order-comment" name="comment" rows="4"></textarea>
+            </div>
+
+            <div class="customer-details">
+                <h3>Ваши данные</h3>
+                <label for="customer-name">Имя</label>
+                <input type="text" id="customer-name" name="name" required>
+
+                <label for="customer-email">Email</label>
+                <input type="email" id="customer-email" name="email" required>
+                <input type="checkbox" id="subscribe" name="subscribe" value="yes" checked>
+                <label for="subscribe">Подписаться на рассылку</label>
+                <label for="customer-phone">Телефон</label>
+                <input type="tel" id="customer-phone" name="phone" required>
+
+                <label for="delivery-address">Адрес доставки</label>
+                <input type="text" id="delivery-address" name="address" required>
+                <fieldset>
+                    <legend>Когда доставить?</legend>
+
+                    <input type="radio" id="delivery-asap" name="delivery_type" value="asap" required>
+                    <label for="delivery-asap">Как можно скорее</label>
+
+                    <input type="radio" id="delivery-scheduled" name="delivery_type" value="scheduled">
+                    <label for="delivery-scheduled">К указанному времени</label>
+                </fieldset>
+
+                <label for="delivery-time">Время доставки</label>
+                <input type="time" id="delivery-time" name="delivery_time" min="07:00" max="23:00" step="300">
+                <button type="reset">Сбросить</button>
+                <button type="submit">Оформить заказ</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- id="contacts" задаёт место, к которому ведёт ссылка из меню. -->
+    <footer id="contacts">
+        <h2>Контакты</h2>
+        <p><a href="mailto:hello@example.com">hello@example.com</a></p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,144 @@
+/* Grid — «сетка». Делим контейнер на три равные колонки.
+   1fr (fraction) — одна доля свободного места. */
+.dish-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+/* Flexbox раскладывает содержимое карточки.
+   column — «столбец», поэтому элементы идут сверху вниз. */
+.dish-card {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 40px;
+    border: 2px solid transparent;
+    border-radius: 35px;
+    background-color: white;
+    cursor: pointer;
+    filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
+}
+
+/* Картинка занимает ширину карточки и сохраняет пропорции. */
+.dish-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 35px;
+}
+
+/* При наведении прозрачная рамка становится цветной.
+   Толщина рамки остаётся той же, поэтому карточка не прыгает. */
+.dish-card:hover {
+    border-color: tomato;
+}
+/* Выбираем кнопки внутри карточек блюд. */
+.dish-card button {
+    margin-top: 8px;
+    background-color: #f1eee9;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Наведение на любую часть карточки меняет фон кнопки внутри неё. */
+.dish-card:hover button {
+    background-color: #e2dbd1;
+}
+/* Свободное место над весом сдвигает вес и кнопку вниз карточки. */
+.dish-weight {
+    margin-top: auto;
+    color: #666;
+}
+/* При ширине окна 800 px или меньше показываем две колонки. */
+@media (max-width: 800px) {
+    .dish-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* При ширине окна 600 px или меньше показываем одну колонку. */
+@media (max-width: 600px) {
+    .dish-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Центрируем заголовки разделов с блюдами на узком экране. */
+    main h2 {
+        text-align: center;
+    }
+}
+
+/* Цена и название блюда крупнее остального текста карточки. */
+.dish-price, .dish-name {
+    font-size: 22px;
+}
+
+/* отступы для формы */
+.order-section {
+    padding: 0 16px;
+}
+
+/* делит на две колонки форму */
+.order-section form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+}
+
+/* в каждую строчку ставит данные "ваш заказ" */
+.order-details label {
+    display: block;
+    margin-bottom: 6px;
+}
+
+.order-details select,
+.order-details textarea {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    margin-bottom: 16px;
+    font: inherit;
+}
+
+/*офрпмляем вторую колонку*/
+.customer-details > label:not([for="subscribe"]) {
+    display: block;
+    margin-bottom: 6px;
+}
+
+.customer-details input[type="text"],
+.customer-details input[type="email"],
+.customer-details input[type="tel"],
+.customer-details input[type="time"] {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    margin-bottom: 16px;
+    font: inherit;
+}
+/* оформляем кнопки */
+.customer-details button {
+    padding: 10px 16px;
+    border: 1px solid #262626;
+    border-radius: 6px;
+    background-color: white;
+    color: #262626;
+    font: inherit;
+    cursor: pointer;
+}
+
+/* меняем цвет кнопки отправки */
+.customer-details button[type="submit"] {
+    background-color: #262626;
+    color: white;
+}
+
+
+/* адаптируем форму под узкий экран */
+@media (max-width: 600px) {
+    .order-section form {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}

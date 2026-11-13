@@ -1,0 +1,124 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Golos Text", sans-serif;
+    margin: 0;
+    font-size: 18px;
+    color: #262626;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header, main {
+    padding: 16px;
+
+}
+
+main {
+    flex: 1;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    padding: 16px;
+    margin-top: 24px;
+}
+
+footer a {
+    color: white;
+}
+
+a {
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 700;
+    color: #262626;
+    text-decoration: none;
+}
+
+a:hover {
+    color: tomato;
+}
+
+footer a:hover {
+    color: tomato;
+}
+
+img {
+    width: 400px;
+    height: auto;
+}
+
+/* Flexbox ставит ссылки в ряд и переносит их, если места не хватает. И больше места делает. */
+nav {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* Выделяем ссылку на текущую страницу. */
+nav a.active {
+    color: tomato;
+}
+
+/* До 800 px распределяем ссылки по ширине меню. */
+@media (max-width: 800px) {
+    nav {
+        justify-content: space-between;
+    }
+}
+
+/* До 600 px ставим ссылки друг под другом и увеличиваем текст. */
+@media (max-width: 600px) {
+    h1 {
+        text-align: center;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav a {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 800px) {
+    .about-image {
+        width: 500px;
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-image {
+        width: 100%;
+    }
+
+    table {
+        font-size: 16px;
+    }
+}
+
+/* В самом узком окне делаем текст таблицы ещё компактнее. */
+@media (max-width: 400px) {
+    table {
+        font-size: 14px;
+    }
+}
