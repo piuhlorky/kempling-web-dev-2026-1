@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <!-- viewport задаёт ширину области просмотра по ширине устройства. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Собрать ланч</title>
+    <!-- Первый link подключает шрифт, второй — общие стили из первой лабораторной. -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;700&amp;display=swap">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+    <header>
+        <h1>Ланч в офис — обеды с доставкой</h1>
+        <nav>
+            <a href="index.html">Главная</a>
+            <!-- aria-current="page" отмечает текущую страницу в меню. -->
+            <a href="menu.html" class="active" aria-current="page">Собрать ланч</a>
+            <a href="#contacts">Контакты</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- сюда скрипт добавит супы -->
+        <section>
+            <h2>Выберите суп</h2>
+            <!-- класс диш грид применяет цсс
+             (дает элементу имя класса по которому цсс его ищет) а айди дает блоку уникальное имя -->
+            <div class="dish-grid" id="soup-grid"></div>
+        </section>
+
+        <!-- сюда добавим главные блюда -->
+        <section>
+            <h2>Выберите главное блюдо</h2>
+            <div class="dish-grid" id="main-grid"></div>
+        </section>
+
+        <!-- а сюда напитки -->
+        <section>
+            <h2>Выберите напиток</h2>
+            <div class="dish-grid" id="drink-grid"></div>
+        </section>
+    </main>
+
+    <!-- РЕАЛИЗАЦИЯ ФОРМЫ. section  - раздел оформления заказа-->
+    <section class="order-section">
+        <h2>Оформить заказ</h2>
+
+        <!-- action задаёт адрес отправки, method — способ отправки. -->
+        <form action="https://httpbin.org/post" method="post">
+            <!-- div - контейнер для деталей заказа -->
+            <div class="order-details">
+                <h3>Ваш заказ</h3>
+
+                <!-- показываем эту надпись, пока ничего не добавили -->
+                <p id="empty-order">Ничего не выбрано</p>
+
+                <!-- hidden скрывает блок, скрипт покажет его после выбора блюда -->
+                <div id="selected-dishes" hidden>
+                    <h4>Суп</h4>
+                    <p id="selected-soup">Блюдо не выбрано</p>
+
+                    <h4>Главное блюдо</h4>
+                    <p id="selected-main">Блюдо не выбрано</p>
+
+                    <h4>Напиток</h4>
+                    <p id="selected-drink">Напиток не выбран</p>
+                </div>
+
+                <!-- сумму тоже покажем, когда появится хотя бы одно блюдо -->
+                <div id="order-total" hidden>
+                    <h4>Стоимость заказа</h4>
+                    <p id="total-price">0 ₽</p>
+                </div>
+
+                <!-- скрытые поля передадут имена выбранных блюд при отправке формы -->
+                <input type="hidden" id="soup" name="soup">
+                <input type="hidden" id="main-dish" name="main_dish">
+                <input type="hidden" id="drink" name="drink">
+
+                <label for="order-comment">Комментарий к заказу</label>
+                <textarea id="order-comment" name="comment" rows="4"></textarea>
+            </div>
+
+            <div class="customer-details">
+                <h3>Ваши данные</h3>
+                <label for="customer-name">Имя</label>
+                <input type="text" id="customer-name" name="name" required>
+
+                <label for="customer-email">Email</label>
+                <input type="email" id="customer-email" name="email" required>
+                <input type="checkbox" id="subscribe" name="subscribe" value="yes" checked>
+                <label for="subscribe">Подписаться на рассылку</label>
+                <label for="customer-phone">Телефон</label>
+                <input type="tel" id="customer-phone" name="phone" required>
+
+                <label for="delivery-address">Адрес доставки</label>
+                <input type="text" id="delivery-address" name="address" required>
+                <fieldset>
+                    <legend>Когда доставить?</legend>
+
+                    <input type="radio" id="delivery-asap" name="delivery_type" value="asap" required>
+                    <label for="delivery-asap">Как можно скорее</label>
+
+                    <input type="radio" id="delivery-scheduled" name="delivery_type" value="scheduled">
+                    <label for="delivery-scheduled">К указанному времени</label>
+                </fieldset>
+
+                <label for="delivery-time">Время доставки</label>
+                <input type="time" id="delivery-time" name="delivery_time" min="07:00" max="23:00" step="300">
+                <button type="reset">Сбросить</button>
+                <button type="submit">Оформить заказ</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- id="contacts" задаёт место, к которому ведёт ссылка из меню. -->
+    <footer id="contacts">
+        <h2>Контакты</h2>
+        <p><a href="mailto:hello@example.com">hello@example.com</a></p>
+    </footer>
+    <!-- ДЖАВА. Подключаем список блюд, из которого позже создадим карточки. -->
+    <script src="dishes.js"></script>
+    <!-- Запускаем вывод меню после загрузки массива блюд. -->
+    <script src="render-menu.js"></script>
+    <!-- подключаем выбор блюд и подсчёт заказа -->
+    <script src="order.js"></script>
+</body>
+</html>
+
